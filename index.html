@@ -3,142 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first Webpage</title>
-    <meta name="description" content="This is a simple idea page." >
+    <title>Svea's Homepage</title>
+    <meta name="description" content="This is navigation page to my web-programming assignments" >
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Svea">
-    <!-- <link href="main.css" rel="stylesheet" />
-    <script src="main.js"/></script/> -->
 </head>
+
+<style>
+    body {
+        font-family: Helvetica, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #f0a800;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    main {
+        padding: 2rem 10rem;
+    }
+
+    div.assignment-links {
+        border: 1px solid #ddd;
+        border-radius: 25px;
+         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color:black;
+        text-decoration: none;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        bottom: 0;
+    }
+</style>
+
 <body>
     <header>
-        <h1><div style="background:rgb(255, 188, 63); padding:1rem;">
-            Final Project Idea
-        </div> </h1>
+        <div>
+            <h1>Svea's Homepage</h1>
+        </div>
     </header>
 
     <main>
+        <h2>Welcome to my Homepage</h2>
+        <p>This is a navigation page to my web-programming assignments. Please click on the links below to see the different assignments.</p>
 
         <hr>
-        <h2>Overall Idea</h2>
-        <blockquote><i>Creating a website to present me and my jewelry brand for customers as well as potential partners.</i></blockquote>
 
-        <hr>
-
-        <div style="background:rgb(255, 223, 162); padding:1rem;">
-            <h3 id="page-ideas">Page Ideas</h3>
-            <ul>
-                <li>Interesting Welcome Page</li>
-                <li>Product Gallery</li>
-                <li>Events</li>
-                    <ul>
-                        <li>Past Events</li>
-                        <li>Future Events</li>
-                    </ul>
-                <li>About Me</li>
-                <li>Blog</li>
-                <li>Contact Form</li>
-            </ul>
+        <h3>Assignments</h3>
+        <div class="assignment-links">
+            <a href="assignment_1.html">Assignment 1: HTML Structure</a>
         </div>
-
-        <hr>
-
-        <h3>To-Do</h3>
-        <ol>
-            <li>Concept</li>
-            <li>Design</li>
-            <li><b>Code</b></li>
-        </ol>
-
-        <hr>
-        <h3>Media Examples</h3>
-        <h4>Product Photo</h4>
-        <img width="400" title="earring prooduct photo" src="media/product-photo.jpg" alt="Colourful upcycled earrings on a table">
-        <br>
-        <span style="background-color:rgb(253, 233, 187);color:rgb(66, 35, 2);">Here you can see my colourful upcycled earrings</span>
-
+        <div class="assignment-links">    
+            <a href="assignment_2.html">Assignment 2: CSS Styling</a>
+        </div>
         
-
-        <hr>
-
-
-        <h3>My Prices</h3>
-
-
-        <table>
-            <thead>
-                <tr>
-                <th>Type</th>
-                <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Fake Piercings</td>
-                    <td>1€</td>
-                </tr><tr>
-                    <td>Aluminium-Earrings</td>
-                    <td>6€</td>
-                </tr>
-                <tr>
-                    <td>Upcycled Earrings</td>
-                    <td>7€</td>
-                </tr>
-                <tr>
-                    <td>Aluminium Necklaces</td>
-                    <td>8€</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <hr>
-
-        <div style="background:rgb(255, 237, 207);padding: 1rem;">
-            <h3>Contact Form</h3>
-            <p><i>Send me a message with your questions or inquiries</i></p>
-            <form>
-                Name:<input type="text" name="name" placeholder="Your name">  
-                <br>
-                Message:<textarea name="msg" rows="3"></textarea>
-            <br>
-            Topic:
-            <select name="" id="">
-                    <option value="">Question</option>
-                    <option value="">Inquiry</option>
-            </select>
-            <br>
-            <input type="radio" name="role" value="student">customer
-            <input type="radio" name="role" value="teacher">business partner
-            <br>
-            <button type="submit">Send</button>
-        </form></div>
-
-        <hr>
-
-        <h3>Calendar</h3>
-
-        <iframe src="https://calendar.google.com/calendar/embed?src=handgemacht.von.svea%40gmail.com&ctz=Europe%2FBerlin" style="border: 0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
-
-        <hr>
-
-        <div style="background:rgb(255, 237, 207);padding: 1rem;">
-            <h3>Final Words</h3>
-            <strong>This was my Website</strong>
-            <br>
-            <em>I hope you enjoyed it &lt;3</em>
-        </div>
-
-        <hr>
-
-        <h3>References</h3>
-
-        <a href="https://www.instagram.com/handgemacht.von.svea/" target="_blank">Visit my Instagram</a>
-        <br>
-        <a href="index.html">Go back to home page</a>
-        <br>
-        <a href="mailto:handgemacht.von.svea@gmail.com">Send me an email</a>
-        <br>
-        <a href="#page-ideas">Jump to Page Ideas section</a>
 
     </main>
 
