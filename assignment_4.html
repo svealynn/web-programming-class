@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>handgemacht von Svea</title>
+    <meta name="description" content="css-styled and layouted Homepage" >
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Svea">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* brygada-1918-700 - latin */
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Brygada 1918';
+            font-style: normal;
+            font-weight: 700;
+            src: url('fonts/brygada-1918-v27-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+        /* brygada-1918-700italic - latin */
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Brygada 1918';
+            font-style: italic;
+            font-weight: 700;
+            src: url('fonts/brygada-1918-v27-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/zen-maru-gothic-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+        /* zen-maru-gothic-700 - latin */
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 700;
+            src: url('fonts/zen-maru-gothic-v19-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* special-elite-regular - latin */
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Special Elite';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/special-elite-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            color: #3F302B;
+            font-size: 16;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        main {
+            padding: 2rem 10rem;
+        }
+
+        h1, h2, h3 {
+        font-family: 'Brygada 1918', serif;
+        font-style: normal;
+        font-weight: 700;
+        }
+
+        h2 {
+            color: #3F302B;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            color: #3F302B;
+        }
+
+        a {
+            color:#3F302B;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============================================================
+                   SCENARIO 1 — MENU / NAVIGATION BAR
+
+                   flex-direction: row (default)
+                   justify-content: space-between
+                   align-items: center
+                   nested flex container for the link list
+        ============================================================ */
+        header.wrapper {
+            background-color: #C9C491;
+            max-width: 100%;           
+            padding: 0;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;     
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #3F302B;
+        }
+
+        
+
+        /* ============================================================
+                   SCENARIO 3 — TEXT + IMAGE (side-by-side)
+
+                   flex: 1  on each column → equal width
+                   The grey box stands in for an image.
+         ============================================================ */
+        .text-image-row {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .text-image-row .col:first-child {
+            flex: 1;
+        }
+
+        .text-image-row .col:last-child {
+            flex: 1;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4 / 3; /* maintains a 4:3 ratio */
+            background: #f1e5cf;
+            margin-bottom: 1.5rem;
+            border-radius: 25px;
+        }
+
+        .text-image-row h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .text-image-row p {
+            color: #555;
+        }
+
+
+        /* ============================================================
+                   SCENARIO 2 — CENTERED HERO / SPLASH
+
+                   place-items: center  (centers on both axes)
+                   flex-direction: column  (stack heading, text, button)
+         ============================================================ */
+        .hero {
+            display: flex;
+            place-items: center;
+            min-height: 40vh;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            max-width: 560px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FFE697;
+            border: 8px solid #FFF5D3;
+            color: #3F302B;
+            padding: 0.75rem 2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            align-self: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: #ffe083;
+        }
+
+
+        /* ============================================================
+                   SCENARIO 5 — GALLERY (image grid)
+
+                   flex-wrap: wrap  +  fixed percentage widths
+                   flex: 0 0 calc(33.333% - 1rem)  → three columns
+                   The calc subtracts the gap so three items fit per row.
+         ============================================================ */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            flex: 0 0 calc(33.333% - 1rem);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-thumb {
+            width: 100%;
+            max-width: 200px;
+            aspect-ratio: 1 / 1;
+            background: #f1e5cf;
+            border-radius: 50%;
+            border: 8px solid #FFE697;
+            box-shadow: 0 0 0 8px #FFF5D3;
+            align-self: center;
+        }
+
+        .gallery-label {
+            padding: 0.75rem;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #555;
+        }
+
+        
+        /* ============================================================
+                   SCENARIO 7 — FOOTER 
+        ============================================================ */
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #ddd;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* ============================================================
+                   SECTION STYLES  (just for spacing)
+        ============================================================ */
+
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-beige {
+            padding: 3rem 0;
+            background-color: #FFFBEF;
+        }
+
+
+        .scenario-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #999;
+            margin-bottom: 0.25rem;
+        }
+
+        .section-sub {
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ============================================================
+                   RESPONSIVE OVERRIDES
+                   On narrow screens, collapse multi-column layouts
+                   and shrink font sizes.
+       ============================================================ */
+
+        @media (max-width: 640px) {
+            .text-image-row {
+                flex-direction: column;
+            }
+
+            .gallery-item {
+                /* full width on mobile */
+                flex: 0 0 100%; 
+                
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+
+        
+    
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================================================================
+           SCENARIO 1: MENU / NAVIGATION BAR
+           A horizontal menu with the brand on the left and links on the
+           right. A classic flexbox row with space-between.
+
+           Properties used:
+           - display: flex
+           - justify-content: space-between
+           - align-items: center
+           - gap
+   ================================================================ -->
+    <header class="wrapper">
+        <nav class="navbar">
+            <strong class="brand">handgemacht von Svea</strong>
+            <ul class="nav-links">
+                <li><a href="#">Angebote</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Über Mich</a></li>
+                <li><a href="#">Ohrring-Galerie</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="wrapper">
+
+        <!-- ============================================================
+               SCENARIO 2: CENTERED HERO
+               A full-width splash section where everything is centered
+               both horizontally and vertically. Common for landing pages.
+
+               Properties used:
+               - display: flex
+               - place-items: center
+               - flex-direction: column  (on the inner wrapper)
+       ============================================================ -->
+        <section class="section-beige">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Hi! Bock auf Upcycling?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                    <a href="#" class="btn">A Button</a>
+                </div>
+            </div>
+        </section>
+
+        
+
+    
+
+        <!-- ============================================================
+               SCENARIO 5: GALLERY (image grid)
+               A fixed three-column grid using percentage widths. Unlike
+               the card grid above, each item has a precise width (33%).
+               Great for photo galleries or product grids.
+
+               Properties used:
+               - display: flex
+               - flex-wrap: wrap
+               - flex: 0 0 calc(33.333% - 1rem)
+        ============================================================ -->
+        <section>
+            <span class="scenario-label">Zeit zum stöbern</span>
+            <h2>Meine Angebote</h2>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-thumb"></div>
+                    <div class="gallery-label">Schmuck</div>
+                    <a href="#" class="btn">mehr erfahren</a>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-thumb"></div>
+                    <div class="gallery-label">Blütenkunst</div>
+                    <a href="#" class="btn">mehr erfahren</a>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-thumb"></div>
+                    <div class="gallery-label">Schmuckworkshops</div>
+                    <a href="#" class="btn">mehr erfahren</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+               SCENARIO 3: TEXT + IMAGE (side-by-side)
+               The text column takes 2/3 of the width and the image
+               placeholder takes 1/3. Switch to single column on mobile.
+
+               Properties used:
+               - display: flex
+               - flex: 1 and flex: 2
+               - gap
+        ============================================================ -->
+        <section class="section-beige">
+            <span class="scenario-label">Na, neugierig?</span>
+            <h2>Wo du meinen Schmuck findest</h2>
+
+            <div class="text-image-row">
+                <div class="col">
+                    <div class="img-placeholder"></div>
+                </div>
+                <div class="col">
+                    <h3>Verkauf bei Tante Trödel</h3>
+                    <p>Meine Ohrringe und Blütenkunst findest du im Flohmarktladen “Tante Trödel” in Lüneburg. Mein Regal fülle ich regelmäßig mit neuen Produkten auf. Schau doch mal vorbei und finde deine neuen Lieblingsohhringe!</p>
+                    <a href="#" class="btn">zur Website von Tante Trödel</a>
+                </div>
+            </div>
+            <div class="text-image-row">
+                <div class="col">
+                    <div class="img-placeholder"></div>
+                </div>
+                <div class="col">
+                    <h3>Verkauf bei Tante Trödel</h3>
+                    <p>Ich verkaufe regelmäßig auf Flohmärkten in Lüneburg und Hamburg. Dort findest du mein gesamtes Sortiment und hast die Möglichkeit, mit mir über meine Arbeit ins Gespräch zu kommen.</p>
+                    <br>
+                    <p>Der nächste Flohmarkt findet am 02. August vor der Rindermarkthalle in Hamburg statt. Ich freue mich, dich dort zu sehen!</p>
+                    <a href="#" class="btn">zu kommenden Flohmarktterminen</a>
+                </div>
+            </div>
+        </section>
+        
+        <br>
+        <hr>
+        <h2>Additional Information Assignment 4</h2>
+
+        <li><b>In General</b> -> Buttons get highlighted when hovering </li>
+        <li><b>Navigation</b> -> Navigation texts change color to a darker tone when hovering </li>
+        <li><b>Über mich</b> -> Add arrows to click for behind the scenes content -> carroussel; When hovering over images, they get bigger, with a click you can open them full size while the webpage is still visible but greyed out in the background</li>
+        <li><b>Angebot</b> -> When hovering over images, they get bigger, with a click you can open them full size while the webpage is still visible but greyed out in the background </li>
+
+    </main>
+
+    <!-- ================================================================
+           SCENARIO 7: FOOTER
+           A footer with copyright
+    ================================================================ -->
+    <footer class="wrapper">
+        <div class="footer-content">
+            <span>&copy; 2026 Svea</span>
+        </div>
+    </footer>
+
+</body>
+</html>
